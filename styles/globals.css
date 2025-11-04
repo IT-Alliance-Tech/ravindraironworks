@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Basic global styles */
+html, body, #__next { height: 100%; }
+body { 
+  background: #fff; 
+  color: #1C1C1C; 
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; 
+}
+a { color: inherit; text-decoration: none; }
+
+/* Hero fallback gradient */
+.hero-fallback { 
+  background: linear-gradient(180deg,#1f2937 0%, #111827 60%); 
+}
+
+/* Hide horizontal scrollbar */
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
