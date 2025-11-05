@@ -33,6 +33,9 @@ export default function Header() {
         <nav className="hidden md:flex items-center gap-6" aria-label="Main navigation">
           <Link href="/" className="text-sm hover:text-gold transition">Home</Link>
           <Link href="/about" className="text-sm hover:text-gold transition">About</Link>
+          {process.env.NODE_ENV !== 'production' && (
+            <Link href="/admin" className="text-sm hover:text-gold transition">Admin</Link>
+          )}
           <details className="group relative">
             <summary className="text-sm cursor-pointer hover:text-gold transition list-none">
               Our Solutions ▾
@@ -69,6 +72,9 @@ export default function Header() {
         <nav className="border-t bg-white px-6 py-4 space-y-3" aria-label="Mobile navigation">
           <Link href="/" className="block py-2 hover:text-gold transition">Home</Link>
           <Link href="/about" className="block py-2 hover:text-gold transition">About</Link>
+          {process.env.NODE_ENV !== 'production' && (
+            <Link href="/admin" className="block py-2 hover:text-gold transition">Admin</Link>
+          )}
           <details className="py-2">
             <summary className="list-none">Our Solutions</summary>
             <div className="pl-4 mt-2 space-y-2">
