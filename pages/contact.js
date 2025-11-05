@@ -161,7 +161,7 @@ export default function Contact() {
               </div>
             </div>
 
-            {/* Contact Details */}
+            {/* Contact Details push */}
             <div className="mt-16 grid md:grid-cols-2 lg:grid-cols-4 gap-8">
               <div className="text-center">
                 <div className="w-12 h-12 mx-auto rounded-full bg-gold/10 flex items-center justify-center">
