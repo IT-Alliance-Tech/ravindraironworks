@@ -16,7 +16,7 @@ export default function Industries() {
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center max-w-2xl mx-auto mb-12">
           <h2 className="text-3xl font-bold text-gray-900">Industries We Serve</h2>
-          <p className="mt-4 text-gray-600">Trusted metal processing partner across diverse sectors</p>
+          <p className="mt-4 text-gray-600">Trusted metal processing partner across diverse sectors push</p>
         </div>
 
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 gap-6">

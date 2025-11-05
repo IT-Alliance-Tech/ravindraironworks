@@ -1,3 +1,5 @@
+import Link from 'next/link'
+
 export default function Hero() {
   return (
     <section id="home" className="relative hero-fallback overflow-hidden">
@@ -24,12 +26,12 @@ export default function Hero() {
               >
                 Explore Services
               </a>
-              <a 
-                href="#contact" 
+              <Link 
+                href="/contact" 
                 className="inline-flex items-center px-6 py-3 border-2 border-white text-white rounded-lg font-semibold hover:bg-white/10 transition-all duration-200"
               >
                 Contact Us
-              </a>
+              </Link>
             </div>
           </div>
         </div>

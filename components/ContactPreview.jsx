@@ -45,38 +45,16 @@ export default function ContactPreview() {
         <div className="grid md:grid-cols-2 gap-12 items-start">
           {/* Map Placeholder with Contact Info */}
           <div className="space-y-6">
-            <div className="aspect-[4/3] rounded-xl bg-white shadow-sm overflow-hidden">
-              {/* Gradient Map Background */}
-              <div className="relative w-full h-full">
-                <div className="absolute inset-0 bg-gradient-to-br from-gray-100 to-gray-200" />
-                
-                {/* Grid Pattern */}
-                <div className="absolute inset-0 overflow-hidden opacity-5">
-                  <div className="absolute w-full h-[200%] -top-1/2 left-0">
-                    {[...Array(20)].map((_, i) => (
-                      <div key={i} className="h-px bg-gray-900 my-8" />
-                    ))}
-                  </div>
-                  <div className="absolute h-full w-[200%] -left-1/2 top-0">
-                    {[...Array(20)].map((_, i) => (
-                      <div key={i} className="w-px bg-gray-900 mx-8 h-full inline-block" />
-                    ))}
-                  </div>
-                </div>
-
-                {/* Location Pin */}
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-center transform -translate-y-4">
-                    <div className="w-16 h-16 mx-auto mb-3 rounded-full bg-gold/20 flex items-center justify-center">
-                      <svg className="w-8 h-8 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                      </svg>
-                    </div>
-                    <div className="text-gray-500 text-sm font-medium">Our Location</div>
-                  </div>
-                </div>
-              </div>
+            <div className="aspect-[4/3] rounded-xl overflow-hidden shadow-sm">
+              <iframe
+                title="Ravindra Iron Works - Location"
+                src="https://maps.google.com/maps?q=5-4-57/1, Distillery Road, Ranigunj, Hyderabad, Telangana 500003, India&z=15&output=embed"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+              />
             </div>
 
             {/* Contact Information */}
@@ -91,8 +69,7 @@ export default function ContactPreview() {
                 <div>
                   <h4 className="font-semibold text-gray-900">Address</h4>
                   <p className="mt-1 text-gray-600 text-sm">
-                    Industrial Area, Plot No. XX<br />
-                    City, State - PIN Code
+                    5-4-57/1, Distillery Road, Ranigunj, Hyderabad, Telangana – 500003, India.
                   </p>
                 </div>
               </div>
@@ -100,7 +77,7 @@ export default function ContactPreview() {
               <div className="flex items-start gap-4">
                 <div className="mt-1">
                   <svg className="w-5 h-5 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 00-2 2" />
                   </svg>
                 </div>
                 <div>
