@@ -1,0 +1,24 @@
+{
+  "components/Hero.jsx": "components/HomePage/Hero.jsx",
+  "components/AboutPreview.jsx": "components/HomePage/AboutPreview.jsx",
+  "components/ServicesGrid.jsx": "components/HomePage/ServicesGrid.jsx",
+  "components/Stats.jsx": "components/HomePage/Stats.jsx",
+  "components/Industries.jsx": "components/HomePage/Industries.jsx",
+  "components/ClientsCarousel.jsx": "components/HomePage/ClientsCarousel.jsx",
+  "components/CTA.jsx": "components/HomePage/CTA.jsx",
+  "components/ContactPreview.jsx": "components/HomePage/ContactPreview.jsx",
+  "components/PreviewHomepage.js": "components/HomePage/PreviewHomepage.js",
+  "components/PreviewCard.js": "components/HomePage/PreviewCard.js",
+  "components/TimelineSection.jsx": "components/HomePage/TimelineSection.jsx",
+  "components/ValuesGrid.jsx": "components/HomePage/ValuesGrid.jsx",
+
+  "components/AdminLayout.js": "components/Admin/AdminLayout.js",
+  "components/AdminPanel.jsx": "components/Admin/AdminPanel.jsx",
+  "components/AdminSection.jsx": "components/Admin/AdminSection.jsx",
+  "components/EditorSection.js": "components/Admin/EditorSection.js",
+  "components/AnalyticsPlaceholder.js": "components/Admin/AnalyticsPlaceholder.js",
+  "components/LoadingCard.js": "components/Admin/LoadingCard.js",
+
+  "components/Header.jsx": "components/shared/Header.jsx",
+  "components/Footer.jsx": "components/shared/Footer.jsx"
+}
