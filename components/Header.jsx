@@ -34,10 +34,10 @@ export default function Header() {
               </div>
             </div>
           </details>
-          <a href="#contact" className="text-sm hover:text-gold transition">Contact</a>
-          <a href="#quote" className="bg-gold px-4 py-2 rounded-lg text-white text-sm font-semibold hover:bg-yellow-600 transition shadow-sm">
+          <Link href="/contact" className="text-sm hover:text-gold transition">Contact</Link>
+          <Link href="/contact" className="bg-gold px-4 py-2 rounded-lg text-white text-sm font-semibold hover:bg-yellow-600 transition shadow-sm">
             Request a Quote
-          </a>
+          </Link>
         </nav>
 
         {/* Mobile Menu Button */}
@@ -66,10 +66,10 @@ export default function Header() {
               <a href="#capabilities" className="block py-1 hover:text-gold transition">Capabilities</a>
             </div>
           </details>
-          <a href="#contact" className="block py-2 hover:text-gold transition">Contact</a>
-          <a href="#quote" className="inline-block bg-gold px-4 py-2 rounded-lg text-white font-semibold hover:bg-yellow-600 transition shadow-sm">
+          <Link href="/contact" className="block py-2 hover:text-gold transition">Contact</Link>
+          <Link href="/contact" className="inline-block bg-gold px-4 py-2 rounded-lg text-white font-semibold hover:bg-yellow-600 transition shadow-sm">
             Request a Quote
-          </a>
+          </Link>
         </nav>
       </div>
     </header>
