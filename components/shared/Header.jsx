@@ -27,6 +27,7 @@ export default function Header() {
         <nav className="hidden md:flex items-center gap-6" aria-label="Main navigation">
           <Link href="/" className="text-sm hover:text-[#DAA520] transition">Home</Link>
           <Link href="/about" className="text-sm hover:text-[#DAA520] transition">About</Link>
+          <Link href="/services" className="text-sm hover:text-[#DAA520] transition">Services</Link>
           {process.env.NODE_ENV !== 'production' && (
             <Link href="/admin" className="text-sm hover:text-[#DAA520] transition">Admin</Link>
           )}
@@ -70,6 +71,7 @@ export default function Header() {
         <nav className="border-t bg-white px-6 py-4 space-y-3" aria-label="Mobile navigation">
           <Link href="/" className="block py-2 hover:text-[#DAA520] transition">Home</Link>
           <Link href="/about" className="block py-2 hover:text-[#DAA520] transition">About</Link>
+          <Link href="/services" className="block py-2 hover:text-[#DAA520] transition">Services</Link>
           {process.env.NODE_ENV !== 'production' && (
             <Link href="/admin" className="block py-2 hover:text-[#DAA520] transition">Admin</Link>
           )}
