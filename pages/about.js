@@ -1,10 +1,10 @@
 import Head from 'next/head'
 import Link from 'next/link'
-import Header from '../components/Header'
-import Footer from '../components/Footer'
-import TimelineSection from '../components/TimelineSection'
-import ValuesGrid from '../components/ValuesGrid'
-import ClientsCarousel from '../components/ClientsCarousel'
+import Header from '../components/shared/Header'
+import Footer from '../components/shared/Footer'
+import TimelineSection from '../components/HomePage/TimelineSection'
+import ValuesGrid from '../components/HomePage/ValuesGrid'
+import ClientsCarousel from '../components/HomePage/ClientsCarousel'
 
 export default function About() {
   return (

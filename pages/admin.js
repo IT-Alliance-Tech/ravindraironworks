@@ -1,23 +1,23 @@
 // /pages/admin.js
 import React, { useEffect, useState, useRef } from 'react'
 import dynamic from 'next/dynamic'
-import Header from '../components/Header'
-import Footer from '../components/Footer'
-import AdminLayout from '../components/AdminLayout'
-import EditorSection from '../components/EditorSection'
+import Header from '../components/shared/Header'
+import Footer from '../components/shared/Footer'
+import AdminLayout from '../components/Admin/AdminLayout'
+import EditorSection from '../components/Admin/EditorSection'
 import Button from '../components/Controls/Button'
 import Input from '../components/Controls/Input'
 import Textarea from '../components/Controls/Textarea'
 import FileInput from '../components/Controls/FileInput'
-import LoadingCard from '../components/LoadingCard'
+import LoadingCard from '../components/Admin/LoadingCard'
 import { saveData, loadData, clearData } from '../lib/localStorage'
 
 // Dynamically load the heavier preview and analytics components
-const PreviewHomepage = dynamic(() => import('../components/PreviewHomepage'), {
+const PreviewHomepage = dynamic(() => import('../components/HomePage/PreviewHomepage'), {
   ssr: false,
   loading: () => <LoadingCard />,
 })
-const AnalyticsPlaceholder = dynamic(() => import('../components/AnalyticsPlaceholder'), {
+const AnalyticsPlaceholder = dynamic(() => import('../components/Admin/AnalyticsPlaceholder'), {
   ssr: false,
   loading: () => <LoadingCard />,
 })

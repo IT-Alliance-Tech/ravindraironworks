@@ -7,13 +7,20 @@ param(
 
 $ErrorActionPreference = 'Stop'
 
-$RepoRoot = Split-Path -Parent $MyInvocation.MyCommand.Definition | Split-Path -Parent
+# Determine script directory robustly across invocation methods
+$ScriptPath = $PSCommandPath
+if (-not $ScriptPath) { $ScriptPath = $MyInvocation.MyCommand.Definition }
+$ScriptDir = Split-Path -Parent $ScriptPath
+$RepoRoot = Split-Path -Parent $ScriptDir
 $MappingFile = Join-Path $RepoRoot 'reorg\mapping.json'
 $MovesLog = Join-Path $RepoRoot 'reorg\moves.log'
 $ChangesLog = Join-Path $RepoRoot 'reorg\changes.log'
 $ManualReview = Join-Path $RepoRoot 'reorg\REORG_MANUAL_REVIEW.md'
 
 Write-Host "Reorg PowerShell script starting..."
+Write-Host "ScriptDir: $ScriptDir"
+Write-Host "RepoRoot: $RepoRoot"
+Write-Host "MappingFile: $MappingFile"
 
 function Abort($msg) {
     Write-Host "ERROR: $msg" -ForegroundColor Red
@@ -31,8 +38,8 @@ if (-not (Test-Path $MappingFile)) {
 }
 
 # Ensure working tree is clean
-$porcelain = git status --porcelain
-if ($porcelain.Trim() -ne '') {
+$porcelain = git status --porcelain 2>$null
+if (-not [string]::IsNullOrWhiteSpace($porcelain)) {
     Write-Host "Working tree is not clean. Please commit or stash changes before running." -ForegroundColor Yellow
     git status --porcelain
     Abort 'Aborting due to unclean working tree.'
