@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react'
+﻿import React, { useEffect, useState, useRef } from 'react'
 
 export default function CountUpFallback({ end = 0, duration = 2, decimals = 0, prefix = '', suffix = '' }) {
   const [value, setValue] = useState(0)
@@ -6,8 +6,9 @@ export default function CountUpFallback({ end = 0, duration = 2, decimals = 0, p
 
   useEffect(() => {
     let raf;
-    const from = 0
-    const to = Number(end) || 0
+    const start = performance.now();
+    const from = 0;
+    const to = Number(end) || 0;
 
     function tick(now) {
       if (!startRef.current) startRef.current = now
