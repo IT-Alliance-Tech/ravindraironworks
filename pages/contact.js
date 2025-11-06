@@ -1,49 +1,14 @@
 import { useState } from 'react'
 import Head from 'next/head'
 import Link from 'next/link'
-import Header from '../components/Header'
-import Footer from '../components/Footer'
+import Header from '../components/shared/Header'
+import Footer from '../components/shared/Footer'
+import dynamic from 'next/dynamic'
+
+const ContactModal = dynamic(() => import('../components/ContactModal'), { ssr: false })
 
 export default function Contact() {
-  const [status, setStatus] = useState(null)
-  const [isSubmitting, setIsSubmitting] = useState(false)
-
-  const handleSubmit = async (e) => {
-    e.preventDefault()
-    setIsSubmitting(true)
-    setStatus(null)
-
-    try {
-      const formData = new FormData(e.target)
-      const data = {
-        name: formData.get('name'),
-        email: formData.get('email'),
-        phone: formData.get('phone'),
-        subject: formData.get('subject'),
-        message: formData.get('message')
-      }
-
-      const res = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data)
-      })
-
-      const result = await res.json()
-      
-      if (result.ok) {
-        setStatus({ type: 'success', message: result.message })
-        e.target.reset()
-      } else {
-        setStatus({ type: 'error', message: 'Something went wrong. Please try again.' })
-      }
-    } catch (error) {
-      setStatus({ type: 'error', message: 'Something went wrong. Please try again.' })
-    } finally {
-      setIsSubmitting(false)
-      window.scrollTo(0, 0)
-    }
-  }
+  const [status] = useState(null)
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -82,82 +47,9 @@ export default function Contact() {
                 />
               </div>
 
-              {/* Form */}
+              {/* Form (reuse ContactModal in inline mode) */}
               <div>
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  {status && (
-                    <div className={`p-4 rounded-lg ${
-                      status.type === 'success' ? 'bg-green-50 text-green-800 border border-green-200' :
-                      'bg-red-50 text-red-800 border border-red-200'
-                    }`}>
-                      {status.message}
-                    </div>
-                  )}
-
-                  <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-gray-700">Name</label>
-                    <input
-                      type="text"
-                      name="name"
-                      id="name"
-                      required
-                      className="mt-1 w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-gold focus:ring-gold"
-                    />
-                  </div>
-
-                  <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email</label>
-                    <input
-                      type="email"
-                      name="email"
-                      id="email"
-                      required
-                      className="mt-1 w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-gold focus:ring-gold"
-                    />
-                  </div>
-
-                  <div>
-                    <label htmlFor="phone" className="block text-sm font-medium text-gray-700">Phone (optional)</label>
-                    <input
-                      type="tel"
-                      name="phone"
-                      id="phone"
-                      className="mt-1 w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-gold focus:ring-gold"
-                    />
-                  </div>
-
-                  <div>
-                    <label htmlFor="subject" className="block text-sm font-medium text-gray-700">Subject</label>
-                    <input
-                      type="text"
-                      name="subject"
-                      id="subject"
-                      required
-                      className="mt-1 w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-gold focus:ring-gold"
-                    />
-                  </div>
-
-                  <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-gray-700">Message</label>
-                    <textarea
-                      name="message"
-                      id="message"
-                      rows={4}
-                      required
-                      className="mt-1 w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-gold focus:ring-gold"
-                    />
-                  </div>
-
-                  <button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className={`w-full rounded-lg bg-gold px-5 py-3 text-white font-semibold shadow hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2 ${
-                      isSubmitting ? 'opacity-75 cursor-not-allowed' : ''
-                    }`}
-                  >
-                    {isSubmitting ? 'Sending...' : 'Send Enquiry'}
-                  </button>
-                </form>
+                <ContactModal inline />
               </div>
             </div>
 
