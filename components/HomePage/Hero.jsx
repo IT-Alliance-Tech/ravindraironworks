@@ -1,6 +1,12 @@
 import Link from 'next/link'
+import dynamic from 'next/dynamic'
+import { useState } from 'react'
+
+const ContactModal = dynamic(() => import('../ContactModal'), { ssr: false })
 
 export default function Hero() {
+  const [open, setOpen] = useState(false)
+
   return (
     <section id="home" className="relative hero-fallback overflow-hidden">
       {/* Decorative Elements */}
@@ -26,16 +32,18 @@ export default function Hero() {
               >
                 Explore Services
               </a>
-              <Link 
-                href="/contact" 
+              <button 
+                onClick={() => setOpen(true)}
                 className="inline-flex items-center px-6 py-3 border-2 border-white text-white rounded-lg font-semibold hover:bg-white/10 transition-all duration-200"
               >
                 Contact Us
-              </Link>
+              </button>
             </div>
           </div>
         </div>
       </div>
+
+      {open && <ContactModal onClose={() => setOpen(false)} />}
     </section>
   )
 }
