@@ -1,6 +1,7 @@
-import Link from 'next/link'
+﻿import Link from 'next/link'
 import dynamic from 'next/dynamic'
 import { useState } from 'react'
+import MotionSection from '../shared/MotionSection.jsx'
 
 const ContactModal = dynamic(() => import('../ContactModal'), { ssr: false })
 
@@ -8,7 +9,7 @@ export default function Hero() {
   const [open, setOpen] = useState(false)
 
   return (
-    <section id="home" className="relative hero-fallback overflow-hidden">
+    <MotionSection as="section" id="home" className="relative hero-fallback overflow-hidden">
       {/* Decorative Elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute w-96 h-96 -top-48 -right-48 bg-yellow-500/10 rounded-full blur-3xl" />
@@ -23,7 +24,7 @@ export default function Hero() {
               Delivering Precision in Every Sheet Since 1978
             </h1>
             <p className="mt-6 text-lg md:text-xl text-gray-200 leading-relaxed">
-              Your one-stop sheet metal service center partnered with TATA Steel — quality, capacity and on-time delivery.
+              Your one-stop sheet metal service center partnered with TATA Steel â€” quality, capacity and on-time delivery.
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
               <a 
@@ -44,6 +45,6 @@ export default function Hero() {
       </div>
 
       {open && <ContactModal onClose={() => setOpen(false)} />}
-    </section>
+    </MotionSection>
   )
 }

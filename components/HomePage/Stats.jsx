@@ -1,6 +1,9 @@
-import Image from 'next/image'
+﻿import Image from 'next/image'
+import { useInView } from 'react-intersection-observer'
+import CountUp from 'react-countup'
 
 export default function Stats() {
+  const [ref, inView] = useInView({ threshold: 0.15, triggerOnce: true })
   const stats = [
     { value: '10,000 MT', label: 'Monthly Processing' },
     { value: '8 Acres', label: 'Facility Area' },
@@ -20,13 +23,13 @@ export default function Stats() {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 gap-6">
+          <div ref={ref} className="grid grid-cols-2 gap-6">
             {stats.map((stat) => (
               <div
                 key={stat.label}
                 className="p-6 rounded-xl bg-gradient-to-br from-white to-yellow-50 shadow-sm hover:shadow-md transition-shadow duration-300"
               >
-                <div className="text-gold font-extrabold text-2xl">{stat.value}</div>
+                <div className="text-gold font-extrabold text-2xl">{inView ? <CountUp end={parseInt(String(stat.value).replace(/[^0-9]/g, ""), 10)} separator="," /> : stat.value}</div>
                 <div className="mt-1 text-sm text-gray-600">{stat.label}</div>
               </div>
             ))}
@@ -52,3 +55,5 @@ export default function Stats() {
     </section>
   )
 }
+
+
