@@ -42,7 +42,7 @@ export default function AdminSidebar({ open = true, onToggle, onSelect, selected
                 <div key={page} className="">
                   <button
                     onClick={() => onSelect({ page, section: pages[page][0] })}
-                    className={`flex items-center gap-2 w-full px-2 py-2 rounded hover:bg-gray-50 transition-colors duration-150 text-left ${selected.page === page ? 'bg-gray-50 border-l-4 border-gold border-yellow-500' : ''}`}
+                    className={`flex items-center gap-2 w-full px-2 py-2 rounded hover:bg-gray-50 transition-colors duration-150 text-left ${selected.page === page ? 'bg-gray-50 border-l-4 border-gold' : ''}`}
                     aria-expanded={selected.page === page}
                   >
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" className="text-gray-600">
